@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comparatif Studeria — Incubateur Premium vs Accélérateur</title>
+<style>
+:root {
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f5f4f1;
+  --color-background-success: #eaf3de;
+  --color-background-warning: #faeeda;
+  --color-text-primary: #1a1916;
+  --color-text-secondary: #7a7870;
+  --color-text-tertiary: #b8b5ac;
+  --color-text-success: #3b6d11;
+  --color-text-warning: #854f0b;
+  --color-border-tertiary: rgba(26,25,22,0.12);
+  --color-border-secondary: rgba(26,25,22,0.25);
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --font-sans: system-ui, -apple-system, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #fafaf8; font-family: var(--font-sans); color: var(--color-text-primary); padding: 2rem; }
+.w { max-width: 960px; margin: 0 auto; padding: 1.5rem 0 2rem; }
+.top-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 12px; margin-bottom: 1.5rem; }
+.card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.25rem; }
+.card.accent { border: 2px solid #AFA9EC; }
+.pill { display: inline-block; font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 999px; }
+.pill-purple { background: #EEEDFE; color: #3C3489; }
+.pill-gray { background: var(--color-background-secondary); color: var(--color-text-secondary); }
+.pill-green { background: var(--color-background-success); color: var(--color-text-success); }
+.pill-amber { background: var(--color-background-warning); color: var(--color-text-warning); }
+.price { font-size: 26px; font-weight: 500; color: #7F77DD; margin: 6px 0 2px; }
+.price-gray { font-size: 26px; font-weight: 500; color: var(--color-text-secondary); margin: 6px 0 2px; }
+.price-sub { font-size: 11px; color: #534AB7; margin-bottom: 1rem; }
+.price-sub-gray { font-size: 11px; color: var(--color-text-tertiary); margin-bottom: 1rem; }
+.card-title { font-size: 15px; font-weight: 500; color: var(--color-text-primary); }
+.card-sub { font-size: 12px; color: var(--color-text-secondary); margin-top: 2px; margin-bottom: .75rem; }
+.row { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 7px; }
+.dot { width: 5px; height: 5px; border-radius: 50%; flex-shrink: 0; margin-top: 7px; }
+.dp { background: #AFA9EC; }
+.dg { background: rgba(26,25,22,0.25); }
+.dv { background: #639922; }
+.da { background: #EF9F27; }
+.rt { font-size: 13px; color: var(--color-text-secondary); line-height: 1.5; }
+.rt strong { font-weight: 500; color: var(--color-text-primary); }
+.sep { font-size: 12px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 8px; }
+.agent-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-bottom: 8px; }
+.ag { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 9px 11px; }
+.ag-full { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 9px 11px; grid-column: span 2; }
+.ag-name { font-size: 12px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 2px; }
+.ag-desc { font-size: 11px; color: var(--color-text-secondary); line-height: 1.4; margin-bottom: 4px; }
+.ag-val { font-size: 10px; font-weight: 500; color: #534AB7; }
+.ag-gen { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 9px 11px; margin-bottom: 7px; opacity: .65; }
+.ag-val-gray { font-size: 10px; color: var(--color-text-tertiary); }
+.value-box { background: #EEEDFE; border-radius: var(--border-radius-md); padding: 9px 12px; }
+.vb-title { font-size: 11px; font-weight: 500; color: #3C3489; }
+.vb-sub { font-size: 11px; color: #534AB7; margin-top: 2px; }
+.value-box-gray { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 9px 12px; }
+.vbg-title { font-size: 11px; font-weight: 500; color: var(--color-text-secondary); }
+.vbg-sub { font-size: 11px; color: var(--color-text-tertiary); margin-top: 2px; }
+.metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: .75rem; }
+.met { background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 9px 12px; }
+.met-val { font-size: 17px; font-weight: 500; color: #7F77DD; }
+.met-val-g { font-size: 17px; font-weight: 500; color: var(--color-text-secondary); }
+.met-lab { font-size: 11px; color: var(--color-text-secondary); margin-top: 1px; }
+.bottom { border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1.25rem; margin-top: 1.5rem; }
+.bottom-title { font-size: 14px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 8px; }
+.bottom-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 10px; }
+.brow { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 7px; }
+.btext { font-size: 13px; color: var(--color-text-secondary); line-height: 1.5; }
+.btext strong { font-weight: 500; color: var(--color-text-primary); }
+.section-label { font-size: 11px; font-weight: 500; letter-spacing: .07em; color: var(--color-text-tertiary); text-transform: uppercase; margin-bottom: .75rem; }
+</style>
+</head>
+<body>
+<div class="w">
+
+  <div class="section-label">Studeria — comparatif des deux offres</div>
+
+  <div class="top-grid">
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px;">
+        <div class="card-title">Incubateur Premium</div>
+        <span class="pill pill-gray">Formation</span>
+      </div>
+      <div class="card-sub">Monter en compétences IA & no-code</div>
+      <div class="price-gray">3 000 €</div>
+      <div class="price-sub-gray">valeur marché ~6 700 €</div>
+      <div class="row"><div class="dot dg"></div><div class="rt"><strong>Vous apprenez</strong> à construire et configurer les agents</div></div>
+      <div class="row"><div class="dot dg"></div><div class="rt"><strong>3 agents génériques</strong> inclus — configuration à votre charge</div></div>
+      <div class="row"><div class="dot dg"></div><div class="rt">4h de coaching individuel</div></div>
+      <div class="row"><div class="dot dg"></div><div class="rt">72h cours collectifs live + accès e-learning 24 mois</div></div>
+      <div class="row"><div class="dot da"></div><div class="rt">Résultats opérationnels : <strong>2 à 3 mois</strong></div></div>
+      <div class="row"><div class="dot dg"></div><div class="rt">ROI non chiffré dans l'offre</div></div>
+    </div>
+
+    <div class="card accent">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px;">
+        <div class="card-title">Accélérateur</div>
+        <span class="pill pill-purple">Transformation</span>
+      </div>
+      <div class="card-sub">Déployer les agents dans votre activité</div>
+      <div class="price">6 000 €</div>
+      <div class="price-sub">valeur marché ~15 000 €</div>
+      <div class="row"><div class="dot dp"></div><div class="rt"><strong>On déploie avec vous</strong> — done with you, résultats immédiats</div></div>
+      <div class="row"><div class="dot dp"></div><div class="rt"><strong>5 agents configurés sur-mesure</strong> selon votre activité et vos outils</div></div>
+      <div class="row"><div class="dot dp"></div><div class="rt">6h de coaching individuel + mesure ROI</div></div>
+      <div class="row"><div class="dot dp"></div><div class="rt">72h cours collectifs live + accès e-learning à vie</div></div>
+      <div class="row"><div class="dot dv"></div><div class="rt">Résultats opérationnels : <strong>dès le 1er mois</strong></div></div>
+      <div class="row"><div class="dot dv"></div><div class="rt">ROI ×7 — <strong>42 000 € d'économies/an</strong> estimées</div></div>
+    </div>
+  </div>
+
+  <div class="top-grid" style="margin-bottom:1.5rem;">
+    <div class="card">
+      <div class="sep">3 agents inclus <span class="pill pill-gray" style="font-size:10px;margin-left:4px;">génériques</span></div>
+      <div style="font-size:12px;color:var(--color-text-secondary);margin-bottom:10px;line-height:1.5;">Non paramétrés pour votre activité. Vous les configurez vous-même au fil de la formation.</div>
+      <div class="ag-gen"><div class="ag-name">Agent au choix dans le catalogue</div><div class="ag-desc">Structure de base à adapter à vos processus</div><div class="ag-val-gray">Paramétrage à votre charge — délai 2 à 4 mois</div></div>
+      <div class="ag-gen"><div class="ag-name">Agent au choix dans le catalogue</div><div class="ag-desc">Non connecté à vos outils existants par défaut</div><div class="ag-val-gray">Intégration à votre charge</div></div>
+      <div class="ag-gen" style="margin-bottom:10px;"><div class="ag-name">Agent au choix dans le catalogue</div><div class="ag-desc">Nécessite une montée en compétences préalable</div><div class="ag-val-gray">Opérationnel après formation complète</div></div>
+      <div class="value-box-gray"><div class="vbg-title">Valeur cumulée : non chiffrée</div><div class="vbg-sub">Le temps de configuration est du temps non consacré à votre activité</div></div>
+    </div>
+
+    <div class="card accent">
+      <div class="sep">5 agents configurés sur-mesure <span class="pill pill-purple" style="font-size:10px;margin-left:4px;">selon votre activité</span></div>
+      <div class="agent-grid">
+        <div class="ag"><div class="ag-name">Accounting Agent</div><div class="ag-desc">Facturation, relances, reporting — connecté à vos outils financiers</div><div class="ag-val">Valeur marché : 3K€/mois</div></div>
+        <div class="ag"><div class="ag-name">Lina = Contenu</div><div class="ag-desc">Posts LinkedIn & Instagram, newsletters, planification éditoriale auto</div><div class="ag-val">Valeur marché : 3K€/mois</div></div>
+        <div class="ag"><div class="ag-name">CRM Manager</div><div class="ag-desc">Relances prospects, devis, suivi pipeline — connecté à votre CRM</div><div class="ag-val">Valeur marché : 4K€/mois</div></div>
+        <div class="ag"><div class="ag-name">Executive Assistant</div><div class="ag-desc">Agenda, synthèses, mails, rappels équipe automatisés</div><div class="ag-val">Valeur marché : 2,5K€/mois</div></div>
+        <div class="ag-full"><div class="ag-name">Email Campaign</div><div class="ag-desc">Séquences de relance multicanaux, segmentation et analytics intégrés</div><div class="ag-val">Valeur marché : 4K€/mois</div></div>
+      </div>
+      <div class="value-box"><div class="vb-title">Valeur cumulée des agents : 16 500 €/mois</div><div class="vb-sub">Chaque agent est configuré selon vos process, vos outils et votre secteur</div></div>
+    </div>
+  </div>
+
+  <div class="top-grid" style="margin-bottom:1.5rem;">
+    <div>
+      <div class="section-label" style="margin-bottom:8px;">Incubateur Premium — chiffres clés</div>
+      <div class="metrics">
+        <div class="met"><div class="met-val-g">3</div><div class="met-lab">agents génériques inclus</div></div>
+        <div class="met"><div class="met-val-g">4h</div><div class="met-lab">coaching individuel</div></div>
+        <div class="met"><div class="met-val-g">2 – 3 mois</div><div class="met-lab">avant résultats opérationnels</div></div>
+        <div class="met"><div class="met-val-g">—</div><div class="met-lab">ROI non chiffré</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="section-label" style="margin-bottom:8px;">Accélérateur — chiffres clés</div>
+      <div class="metrics">
+        <div class="met"><div class="met-val">5</div><div class="met-lab">agents sur-mesure déployés</div></div>
+        <div class="met"><div class="met-val">6h</div><div class="met-lab">coaching individuel + suivi ROI</div></div>
+        <div class="met"><div class="met-val">×7</div><div class="met-lab">ROI dès la 1ère année</div></div>
+        <div class="met"><div class="met-val">2 mois</div><div class="met-lab">pour amortir l'investissement</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="bottom-title">La vraie question à se poser</div>
+    <div class="bottom-grid">
+      <div>
+        <div class="brow"><div class="dot dg" style="margin-top:6px;"></div><div class="btext"><strong>Incubateur Premium</strong> — votre priorité est de <strong>maîtriser l'IA en profondeur</strong> et vous avez le temps de monter en compétences progressivement.</div></div>
+        <div class="brow"><div class="dot dg" style="margin-top:6px;"></div><div class="btext">Idéal pour un freelance, un indépendant ou un salarié qui veut devenir référent IA dans son entourage professionnel.</div></div>
+        <div class="brow"><div class="dot dg" style="margin-top:6px;"></div><div class="btext">Bon point de départ — les 3 000 € sont déduits si vous évoluez vers l'Accélérateur par la suite.</div></div>
+      </div>
+      <div>
+        <div class="brow"><div class="dot dp" style="margin-top:6px;"></div><div class="btext"><strong>Accélérateur</strong> — votre priorité est de <strong>libérer du temps et gagner en rentabilité maintenant</strong>, avec des agents opérationnels dès le 1er mois.</div></div>
+        <div class="brow"><div class="dot dp" style="margin-top:6px;"></div><div class="btext">Idéal pour un dirigeant, un chef d'entreprise ou un entrepreneur qui veut transformer son activité rapidement sans tout gérer seul.</div></div>
+        <div class="brow"><div class="dot dv" style="margin-top:6px;"></div><div class="btext">La différence de 3 000 € est couverte par les économies générées dès le 2ème mois post-accompagnement.</div></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
